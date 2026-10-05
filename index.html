@@ -1,0 +1,613 @@
+<!doctype html>
+<html lang="mn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Magic Cell Mongolia — Солонгос экзосомын арьс арчилгаа</title>
+<meta name="description" content="Return Magic Cell — Өмнөд Солонгосын экзосомын арьс арчилгааны иж бүрдэл одоо Монголд. Эмнэлэг, салонд бөөний нөхцөлтэй.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Magic Cell Mongolia — Солонгос экзосомын арьс арчилгаа">
+<meta property="og:description" content="Return Magic Cell иж бүрдэл одоо Монголд. Үнэгүй дээж авах хүсэлт илгээгээрэй.">
+<meta property="og:image" content="/assets/kit.jpg">
+<meta name="theme-color" content="#9E1B22">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#F7F5F2}
+a{color:#9E1B22}a:hover{color:#6E1217}
+img{max-width:100%}
+@media (max-width:600px){h1{font-size:38px!important}h2{font-size:30px!important}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+
+var I18N = {
+  mn: {
+    navResults: "Үр дүн",
+    navBiz: "Бизнес",
+    bizEyebrow: "БИЗНЕСИЙН БОЛОМЖ", bizTitle: "Уудаг үүдэл эсийн бүтээгдэхүүн ба түншлэл",
+    bizText: "Өдөр тутам уух зориулалттай [БҮТЭЭГДЭХҮҮНИЙ ТӨРӨЛ]-ийг хэрэглэж, хүсвэл борлуулагч түнш болон өөрийн бизнесээ эхлүүлээрэй.",
+    drinkPh: "[БҮТЭЭГДЭХҮҮНИЙ ЗУРАГ]", drinkBrand: "[БРЭНД]", drinkName: "[БҮТЭЭГДЭХҮҮНИЙ НЭР]",
+    drinkText: "[Товч тайлбар: юунаас бүрдэх, хэрхэн хэрэглэх]",
+    drinkSpecs: [{v: "Найрлага: [ГОЛ ОРЦ]"}, {v: "Савлагаа: [ХЭМЖЭЭ, ТОО]"}, {v: "Бүртгэл: [МОНГОЛД БҮРТГЭСЭН ДУГААР]"}],
+    joinEyebrow: "ТҮНШ БОЛОХ", joinFeeL: "элсэх хураамж", joinIncl: "Хураамжид багтсан зүйлс:",
+    joinList: [{v: "[ЭХЛЭЛИЙН БАГЦ: бүтээгдэхүүн, тоо ширхэг]"}, {v: "[СУРГАЛТ]"}, {v: "[БОРЛУУЛАЛТЫН МАТЕРИАЛ]"}, {v: "[УРАМШУУЛЛЫН ТӨЛӨВЛӨГӨӨ: хувь, нөхцөл]"}],
+    joinBtn: "Түнш болох хүсэлт",
+    bizNote: "Хүнсний нэмэлт бүтээгдэхүүн бөгөөд эм биш, өвчин эмчлэх зориулалтгүй. Орлого баталгаатгүй бөгөөд таны бодит борлуулалтаас хамаарна.",
+    resultsEyebrow: "ҮР ДҮН", resultsTitle: "Хэрэглэгчдийн бодит үр дүн",
+    resultsText: "Return Magic Cell хэрэглэсэн хэрэглэгчдийн өмнө ба дараах зургууд.",
+    before: "ӨМНӨ", after: "ДАРАА", beforePh: "[ӨМНӨХ ЗУРАГ]", afterPh: "[ДАРААХ ЗУРАГ]",
+    cases: [
+      {label: "[Нас, арьсны төрөл]", detail: "[Хэрэглэсэн хугацаа, удаа]"},
+      {label: "[Нас, арьсны төрөл]", detail: "[Хэрэглэсэн хугацаа, удаа]"},
+      {label: "[Нас, арьсны төрөл]", detail: "[Хэрэглэсэн хугацаа, удаа]"}
+    ],
+    resultsNote: "Зургууд нь хэрэглэгчийн зөвшөөрлөөр нийтлэгдсэн, засваргүй бодит зураг. Үр дүн хүн бүрд өөр байж болно.",
+    shareEyebrow: "ХУВААЛЦАХ", shareTitle: "Найздаа хуваалцаарай",
+    shareText: "Танд таалагдсан бол энэ хуудсыг найз, хамт олондоо илгээгээрэй.",
+    shareFb: "Facebook", shareNative: "Хуваалцах", shareCopy: "Холбоос хуулах", shareCopied: "Хуулагдлаа", shareEmail: "И-мэйл",
+    shareSubject: "Magic Cell Mongolia — Солонгос экзосомын арьс арчилгаа",
+    navProduct: "Бүтээгдэхүүн", navHow: "Хэрэглэх заавар", navPro: "Эмнэлэг, салонд", navExpert: "Мэргэжилтэн", navContact: "Холбоо барих",
+    cta: "Дээж авах хүсэлт",
+    eyebrow: "ӨМНӨД СОЛОНГОСООС · ГОО САЙХНЫ БҮТЭЭГДЭХҮҮН",
+    heroTitle: "Солонгос экзосомын арьс арчилгаа одоо Монголд",
+    heroText: "Return Magic Cell бол хөлдөөж хатаасан экзосомын нунтаг ба идэвхжүүлэгч уусмалаас бүрдэх, нүүрэнд түрхэх зориулалттай иж бүрдэл юм. Солонгосын ISO 22716 стандарттай үйлдвэрт үйлдвэрлэгдсэн.",
+    btn1: "Бүтээгдэхүүнтэй танилцах", btn2: "Эмнэлэг, салонд зориулсан нөхцөл",
+    kitAlt: "Return Magic Cell иж бүрдэл, 10 vial",
+    heroCaption: "10 vial-тай иж бүрдэл · 01 экзосом нунтаг 2 мл · 02 идэвхжүүлэгч 5 мл",
+    features: [{label: "Солонгост үйлдвэрлэсэн"}, {label: "ISO 22716 стандарттай үйлдвэр"}, {label: "Зөвхөн арьсанд түрхэх зориулалттай"}, {label: "Монгол хэл дээрх заавартай"}],
+    kitEyebrow: "ИЖ БҮРДЭЛ", kitTitle: "Хоёр бүрэлдэхүүн, нэг арчилгаа",
+    kitText: "Хэрэглэхийн өмнөхөн хоёр бүрэлдэхүүнийг хольдог тул идэвхтэй орцууд шинэхэн хэвээрээ арьсанд хүрнэ.",
+    parts: [
+      {no: "01", title: "Хөлдөөж хатаасан экзосом нунтаг · 2 мл", text: "Хүний хүйн мезенхимал үүдэл эсийн өсгөвөрийн шингэн (Солонгосын аюулгүй байдлын стандартын дагуу). Хатаасан хэлбэрээр хадгалагдах тул идэвхтэй чанараа удаан хадгална."},
+      {no: "02", title: "Идэвхжүүлэгч уусмал · 5 мл", text: "Гиалуроны хүчил, ниацинамид, транексамын хүчил, глутатион, аденозин болон олон төрлийн пептид агуулна. Арьсыг чийгшүүлж, гэрэлтүүлэх, үрчлээ багасгахад тусална."}
+    ],
+    specs: [{k: "БАГЦ", v: "10 vial (01 + 02)"}, {k: "АНГИЛАЛ", v: "Гоо сайхны бүтээгдэхүүн (БНСУ)"}, {k: "ҮНЭ", v: "[ҮНЭ]₮"}, {k: "ХАДГАЛАЛТ", v: "[ХАДГАЛАХ НӨХЦӨЛ]"}],
+    howEyebrow: "ХЭРЭГЛЭХ ЗААВАР", howTitle: "Дөрвөн алхамтай энгийн арчилгаа",
+    steps: [
+      {n: "1", t: "Цэвэрлэх", d: "Нүүрээ угааж, арьсаа хуурайшуулна."},
+      {n: "2", t: "Холих", d: "02 уусмалыг 01 нунтаг руу хийж, бүрэн уустал зөөлөн сэгсэрнэ."},
+      {n: "3", t: "Түрхэх", d: "Нүүрэндээ жигд түрхэж, хуруугаараа зөөлөн илж шингээнэ."},
+      {n: "4", t: "Хамгаалах", d: "Чийгшүүлэгч түрхэж, өдрийн цагаар нарны тос заавал хэрэглэнэ."}
+    ],
+    warnTitle: "Анхааруулга",
+    warnText: "Зөвхөн арьсан дээр түрхэнэ. Тарьж хэрэглэхгүй. Шархтай, үрэвссэн хэсэгт хэрэглэхгүй. Улайх, хавдах, загатнах шинж илэрвэл хэрэглэхээ зогсоож, арьсны эмчид хандана. Хүүхдийн гар хүрэхгүй газар хадгална.",
+    moreEyebrow: "УДАХГҮЙ", moreTitle: "Өдөр тутмын арчилгааны бүтээгдэхүүн", moreText: "Солонгосын экзосомтой өдөр тутмын арчилгааны цуврал болон нарны тос.",
+    proEyebrow: "ЭМНЭЛЭГ, САЛОНД", proTitle: "Мэргэжлийн хамтын ажиллагаа",
+    proText: "Арьс арчилгааны эмнэлэг, гоо сайхны салонтой бөөний нөхцөлөөр хамтран ажиллана. Тарилгагүй нүүрний арчилгааны үйлчилгээндээ ашиглаарай.",
+    proBtn: "Хамтран ажиллах хүсэлт",
+    pro: [{t: "Үнэгүй дээж", d: "Эхлээд туршаад, дараа нь шийдээрэй."}, {t: "Хамгийн бага захиалгагүй", d: "Эхний захиалгад тоо хэмжээний шаардлага байхгүй."}, {t: "Сургалт", d: "Ажилтнуудад зөв хэрэглэх аргыг зааж өгнө."}, {t: "Баримт бичиг", d: "Найрлага, шинжилгээний гэрчилгээ, монгол заавар."}],
+    expertEyebrow: "МЭРГЭЖЛИЙН ЗӨВЛӨХ", expertName: "Ан Ыйсок (안의석)",
+    expertRole: "[ЦОЛ, АЛБАН ТУШААЛ]",
+    expertBio: "[ЭМЧИЙН ТАНИЛЦУУЛГА: мэргэжил, ажилладаг эмнэлэг, туршлага, гишүүнчлэл]",
+    faqEyebrow: "ТҮГЭЭМЭЛ АСУУЛТ", faqTitle: "Асуулт, хариулт",
+    faq: [
+      {q: "Энэ бүтээгдэхүүнийг тарьж болох уу?", a: "Үгүй. Return Magic Cell нь Солонгост гоо сайхны бүтээгдэхүүнээр бүртгэгдсэн бөгөөд зөвхөн арьсан дээр түрхэх зориулалттай."},
+      {q: "Хэр олон удаа хэрэглэх вэ?", a: "[ҮЙЛДВЭРЛЭГЧИЙН ЗААВРААР ХЭРЭГЛЭХ ДАВТАМЖ]"},
+      {q: "Хольсны дараа хэр удаан хадгалах вэ?", a: "[ҮЙЛДВЭРЛЭГЧЭЭС ТОДРУУЛАХ]"},
+      {q: "Хаанаас худалдаж авах вэ?", a: "Доорх маягтаар хүсэлт илгээх эсвэл утсаар холбогдоорой."}
+    ],
+    contactEyebrow: "ХОЛБОО БАРИХ", contactTitle: "Дээж, үнийн мэдээлэл авах", contactText: "Мэдээллээ үлдээвэл 24 цагийн дотор эргэж холбогдоно.",
+    phoneL: "Утас", emailL: "И-мэйл", addrL: "Хаяг", addrV: "[ХАЯГ], Улаанбаатар",
+    fName: "Нэр", fPhone: "Утасны дугаар", fWho: "Та хэн бэ?", fMsg: "Зурвас", fSend: "Хүсэлт илгээх",
+    whoOpts: [{label: "Хувь хэрэглэгч"}, {label: "Эмнэлэг"}, {label: "Гоо сайхны салон"}, {label: "Бөөний худалдаа"}, {label: "Бизнес түнш болох"}],
+    distributor: "Монгол дахь дистрибьютор: [ДИСТРИБЬЮТОРЫН НЭР]",
+    disclaimer: "Энэхүү бүтээгдэхүүн нь гоо сайхны бүтээгдэхүүн бөгөөд эм биш. Өвчнийг эмчлэх, оношлох зориулалтгүй.",
+    sizes: ["120 мл", "50 мл", "100 мл", "50 г", "50 мл"]
+  },
+  en: {
+    navResults: "Results",
+    navBiz: "Business",
+    bizEyebrow: "BUSINESS OPPORTUNITY", bizTitle: "Drinkable stem cell product and partnership",
+    bizText: "Use our daily drinkable [PRODUCT TYPE], and if you like, become a sales partner and start your own business.",
+    drinkPh: "[PRODUCT PHOTO]", drinkBrand: "[BRAND]", drinkName: "[PRODUCT NAME]",
+    drinkText: "[Short description: what it contains, how to take it]",
+    drinkSpecs: [{v: "Ingredients: [KEY INGREDIENTS]"}, {v: "Pack: [SIZE, QUANTITY]"}, {v: "Registration: [MONGOLIAN REGISTRATION NO.]"}],
+    joinEyebrow: "BECOME A PARTNER", joinFeeL: "joining fee", joinIncl: "What the fee includes:",
+    joinList: [{v: "[STARTER KIT: products, quantity]"}, {v: "[TRAINING]"}, {v: "[SALES MATERIALS]"}, {v: "[COMPENSATION PLAN: rates, terms]"}],
+    joinBtn: "Apply to partner",
+    bizNote: "This is a food supplement, not a medicine, and is not intended to treat any disease. Income is not guaranteed and depends on your actual sales.",
+    resultsEyebrow: "RESULTS", resultsTitle: "Real customer results",
+    resultsText: "Before and after photos from customers who used Return Magic Cell.",
+    before: "BEFORE", after: "AFTER", beforePh: "[BEFORE PHOTO]", afterPh: "[AFTER PHOTO]",
+    cases: [
+      {label: "[Age, skin type]", detail: "[Period and number of uses]"},
+      {label: "[Age, skin type]", detail: "[Period and number of uses]"},
+      {label: "[Age, skin type]", detail: "[Period and number of uses]"}
+    ],
+    resultsNote: "Photos are unretouched and published with each customer's consent. Individual results may vary.",
+    shareEyebrow: "SHARE", shareTitle: "Share with a friend",
+    shareText: "If you like what you see, send this page to your friends and colleagues.",
+    shareFb: "Facebook", shareNative: "Share", shareCopy: "Copy link", shareCopied: "Copied", shareEmail: "Email",
+    shareSubject: "Magic Cell Mongolia — Korean exosome skincare",
+    navProduct: "Product", navHow: "How to use", navPro: "For clinics", navExpert: "Expert", navContact: "Contact",
+    cta: "Request a sample",
+    eyebrow: "FROM SOUTH KOREA · COSMETIC SKINCARE",
+    heroTitle: "Korean exosome skincare, now in Mongolia",
+    heroText: "Return Magic Cell is a topical facial care kit made of a freeze-dried exosome powder and an activating solution. Manufactured in Korea at an ISO 22716 certified facility.",
+    btn1: "Discover the product", btn2: "Terms for clinics and salons",
+    kitAlt: "Return Magic Cell kit, 10 vials",
+    heroCaption: "10-vial kit · 01 exosome powder 2 ml · 02 activating solution 5 ml",
+    features: [{label: "Made in Korea"}, {label: "ISO 22716 certified facility"}, {label: "For topical use only"}, {label: "Mongolian instructions included"}],
+    kitEyebrow: "THE KIT", kitTitle: "Two components, one ritual",
+    kitText: "The two components are mixed right before use, so the active ingredients reach your skin fresh.",
+    parts: [
+      {no: "01", title: "Freeze-dried exosome powder · 2 ml", text: "Human umbilical cord mesenchymal stem cell culture fluid, compliant with Korean safety standards. Freeze-drying helps preserve its activity."},
+      {no: "02", title: "Activating solution · 5 ml", text: "Contains hyaluronic acid, niacinamide, tranexamic acid, glutathione, adenosine and a range of peptides. Helps hydrate, brighten and reduce the look of wrinkles."}
+    ],
+    specs: [{k: "PACK", v: "10 vials (01 + 02)"}, {k: "CATEGORY", v: "Cosmetic (Republic of Korea)"}, {k: "PRICE", v: "[PRICE] MNT"}, {k: "STORAGE", v: "[STORAGE CONDITIONS]"}],
+    howEyebrow: "HOW TO USE", howTitle: "A simple four-step routine",
+    steps: [
+      {n: "1", t: "Cleanse", d: "Wash your face and pat it dry."},
+      {n: "2", t: "Mix", d: "Pour solution 02 into powder 01 and shake gently until fully dissolved."},
+      {n: "3", t: "Apply", d: "Spread evenly over the face and pat gently until absorbed."},
+      {n: "4", t: "Protect", d: "Follow with moisturizer, and always use sunscreen during the day."}
+    ],
+    warnTitle: "Caution",
+    warnText: "For external use on the skin only. Do not inject. Do not apply to wounds or inflamed skin. Stop use and consult a dermatologist if redness, swelling or itching occurs. Keep out of reach of children.",
+    moreEyebrow: "COMING SOON", moreTitle: "Daily skincare essentials", moreText: "A Korean exosome daily care line and a vitamin sunscreen.",
+    proEyebrow: "FOR CLINICS AND SALONS", proTitle: "Professional partnership",
+    proText: "We work with skin clinics and beauty salons on wholesale terms. Use the kit in your non-invasive facial treatments.",
+    proBtn: "Become a partner",
+    pro: [{t: "Free samples", d: "Try it first, then decide."}, {t: "No minimum order", d: "No quantity requirement for your first order."}, {t: "Training", d: "We show your team how to use it correctly."}, {t: "Documentation", d: "Ingredient list, certificate of analysis and Mongolian instructions."}],
+    expertEyebrow: "EXPERT ADVISOR", expertName: "Ahn Eui-seok (안의석)",
+    expertRole: "[TITLE, POSITION]",
+    expertBio: "[DOCTOR BIO: specialty, clinic, experience, memberships]",
+    faqEyebrow: "FAQ", faqTitle: "Questions and answers",
+    faq: [
+      {q: "Can this product be injected?", a: "No. Return Magic Cell is registered as a cosmetic in Korea and is intended for topical use on the skin only."},
+      {q: "How often should I use it?", a: "[FREQUENCY PER MANUFACTURER INSTRUCTIONS]"},
+      {q: "How long does it keep after mixing?", a: "[TO BE CONFIRMED WITH MANUFACTURER]"},
+      {q: "Where can I buy it?", a: "Send a request using the form below or call us."}
+    ],
+    contactEyebrow: "CONTACT", contactTitle: "Get samples and pricing", contactText: "Leave your details and we will get back to you within 24 hours.",
+    phoneL: "Phone", emailL: "Email", addrL: "Address", addrV: "[ADDRESS], Ulaanbaatar",
+    fName: "Name", fPhone: "Phone number", fWho: "You are", fMsg: "Message", fSend: "Send request",
+    whoOpts: [{label: "Individual customer"}, {label: "Clinic"}, {label: "Beauty salon"}, {label: "Wholesale"}, {label: "Business partner"}],
+    distributor: "Distributor in Mongolia: [DISTRIBUTOR NAME]",
+    disclaimer: "This product is a cosmetic, not a medicine. It is not intended to diagnose or treat any disease.",
+    sizes: ["120 ml", "50 ml", "100 ml", "50 g", "50 ml"]
+  },
+  ko: {
+    navResults: "결과",
+    navBiz: "비즈니스",
+    bizEyebrow: "비즈니스 기회", bizTitle: "마시는 줄기세포 제품과 파트너십",
+    bizText: "매일 마시는 [제품 유형]을 사용해 보시고, 원하시면 판매 파트너가 되어 나만의 비즈니스를 시작하세요.",
+    drinkPh: "[제품 사진]", drinkBrand: "[브랜드]", drinkName: "[제품명]",
+    drinkText: "[간단한 설명: 구성 성분, 섭취 방법]",
+    drinkSpecs: [{v: "성분: [주요 성분]"}, {v: "구성: [용량, 수량]"}, {v: "등록: [몽골 등록 번호]"}],
+    joinEyebrow: "파트너 가입", joinFeeL: "가입비", joinIncl: "가입비 포함 내역:",
+    joinList: [{v: "[스타터 키트: 제품, 수량]"}, {v: "[교육]"}, {v: "[판매 자료]"}, {v: "[보상 플랜: 비율, 조건]"}],
+    joinBtn: "파트너 신청",
+    bizNote: "본 제품은 건강기능식품/식품이며 의약품이 아니고 질병 치료 목적이 아닙니다. 수익은 보장되지 않으며 실제 판매 실적에 따라 달라집니다.",
+    resultsEyebrow: "사용 결과", resultsTitle: "실제 고객 사용 결과",
+    resultsText: "Return Magic Cell을 사용한 고객의 사용 전후 사진입니다.",
+    before: "사용 전", after: "사용 후", beforePh: "[사용 전 사진]", afterPh: "[사용 후 사진]",
+    cases: [
+      {label: "[나이, 피부 타입]", detail: "[사용 기간 및 횟수]"},
+      {label: "[나이, 피부 타입]", detail: "[사용 기간 및 횟수]"},
+      {label: "[나이, 피부 타입]", detail: "[사용 기간 및 횟수]"}
+    ],
+    resultsNote: "고객의 동의를 받아 게재한 무보정 사진입니다. 개인에 따라 결과는 다를 수 있습니다.",
+    shareEyebrow: "공유", shareTitle: "친구에게 공유하기",
+    shareText: "마음에 드셨다면 이 페이지를 친구와 동료에게 보내 주세요.",
+    shareFb: "Facebook", shareNative: "공유하기", shareCopy: "링크 복사", shareCopied: "복사되었습니다", shareEmail: "이메일",
+    shareSubject: "Magic Cell Mongolia — 한국 엑소좀 스킨케어",
+    navProduct: "제품", navHow: "사용 방법", navPro: "병원·살롱", navExpert: "전문가", navContact: "문의",
+    cta: "샘플 신청",
+    eyebrow: "대한민국 · 화장품",
+    heroTitle: "한국 엑소좀 스킨케어, 이제 몽골에서",
+    heroText: "Return Magic Cell은 동결건조 엑소좀 파우더와 활성화 용액으로 구성된 얼굴 도포용 키트입니다. ISO 22716 인증 시설에서 한국에서 제조되었습니다.",
+    btn1: "제품 보기", btn2: "병원·살롱 거래 조건",
+    kitAlt: "Return Magic Cell 키트, 10바이알",
+    heroCaption: "10바이알 키트 · 01 엑소좀 파우더 2ml · 02 활성화 용액 5ml",
+    features: [{label: "한국 제조"}, {label: "ISO 22716 인증 시설"}, {label: "피부 외용 전용"}, {label: "몽골어 사용설명서 제공"}],
+    kitEyebrow: "구성", kitTitle: "두 가지 구성, 하나의 케어",
+    kitText: "사용 직전에 두 구성품을 혼합하므로 유효 성분이 신선한 상태로 피부에 닿습니다.",
+    parts: [
+      {no: "01", title: "동결건조 엑소좀 파우더 · 2ml", text: "인체 제대 중간엽 줄기세포 배양액(국내 안전기준 적합). 동결건조 방식으로 활성을 오래 유지합니다."},
+      {no: "02", title: "활성화 용액 · 5ml", text: "히알루론산, 나이아신아마이드, 트라넥사믹애씨드, 글루타치온, 아데노신 및 다양한 펩타이드 함유. 보습, 미백, 주름 개선에 도움을 줍니다."}
+    ],
+    specs: [{k: "구성", v: "10바이알 (01 + 02)"}, {k: "분류", v: "화장품 (대한민국)"}, {k: "가격", v: "[가격] 투그릭"}, {k: "보관", v: "[보관 조건]"}],
+    howEyebrow: "사용 방법", howTitle: "간단한 4단계 케어",
+    steps: [
+      {n: "1", t: "세안", d: "얼굴을 깨끗이 씻고 물기를 제거합니다."},
+      {n: "2", t: "혼합", d: "02 용액을 01 파우더에 넣고 완전히 녹을 때까지 가볍게 흔듭니다."},
+      {n: "3", t: "도포", d: "얼굴 전체에 고르게 펴 바르고 가볍게 두드려 흡수시킵니다."},
+      {n: "4", t: "보호", d: "보습제를 바르고, 낮에는 반드시 선크림을 사용합니다."}
+    ],
+    warnTitle: "주의사항",
+    warnText: "피부 외용으로만 사용하십시오. 주사하지 마십시오. 상처나 염증이 있는 부위에는 사용하지 마십시오. 붉은 반점, 부어오름, 가려움 등이 나타나면 사용을 중지하고 피부과 전문의와 상담하십시오. 어린이의 손이 닿지 않는 곳에 보관하십시오.",
+    moreEyebrow: "출시 예정", moreTitle: "데일리 스킨케어", moreText: "한국 엑소좀 데일리 케어 라인과 비타민 선크림.",
+    proEyebrow: "병원·살롱", proTitle: "전문가 파트너십",
+    proText: "피부 클리닉 및 뷰티 살롱과 도매 조건으로 협력합니다. 비침습 페이셜 케어에 활용하십시오.",
+    proBtn: "파트너 신청",
+    pro: [{t: "무료 샘플", d: "먼저 사용해 보고 결정하십시오."}, {t: "최소주문수량 없음", d: "첫 주문에 수량 제한이 없습니다."}, {t: "교육", d: "올바른 사용 방법을 교육해 드립니다."}, {t: "서류 제공", d: "전성분표, 시험성적서, 몽골어 설명서."}],
+    expertEyebrow: "전문 자문", expertName: "안의석",
+    expertRole: "[직함, 직위]",
+    expertBio: "[원장 소개: 전문 분야, 소속 의원, 경력, 학회 활동]",
+    faqEyebrow: "자주 묻는 질문", faqTitle: "질문과 답변",
+    faq: [
+      {q: "이 제품을 주사해도 되나요?", a: "아니요. Return Magic Cell은 한국에서 화장품으로 등록된 제품으로, 피부에 바르는 용도로만 사용합니다."},
+      {q: "얼마나 자주 사용하나요?", a: "[제조사 권장 사용 주기]"},
+      {q: "혼합 후 얼마나 보관할 수 있나요?", a: "[제조사 확인 필요]"},
+      {q: "어디에서 구매할 수 있나요?", a: "아래 양식으로 문의하시거나 전화로 연락해 주십시오."}
+    ],
+    contactEyebrow: "문의", contactTitle: "샘플 및 가격 문의", contactText: "연락처를 남겨 주시면 24시간 이내에 연락드리겠습니다.",
+    phoneL: "전화", emailL: "이메일", addrL: "주소", addrV: "[주소], 울란바토르",
+    fName: "성함", fPhone: "전화번호", fWho: "구분", fMsg: "메시지", fSend: "문의 보내기",
+    whoOpts: [{label: "개인 고객"}, {label: "병원"}, {label: "뷰티 살롱"}, {label: "도매"}, {label: "비즈니스 파트너"}],
+    distributor: "몽골 유통: [유통업자명]",
+    disclaimer: "본 제품은 화장품이며 의약품이 아닙니다. 질병의 진단 또는 치료를 목적으로 하지 않습니다.",
+    sizes: ["120ml", "50ml", "100ml", "50g", "50ml"]
+  }
+};
+var SHARE_URL = location.origin + "/";
+var LINEUP = [
+  {brand: "DR. BODY VITA", name: "Neocellup Exosome Toner", img: "assets/toner.jpg"},
+  {brand: "DR. BODY VITA", name: "Neocellup Exosome Serum", img: "assets/serum.jpg"},
+  {brand: "DR. BODY VITA", name: "Neocellup Exosome Lotion", img: "assets/lotion.jpg"},
+  {brand: "DR. BODY VITA", name: "Neocellup Exosome Cream", img: "assets/cream.jpg"},
+  {brand: "D\u2019ALBA", name: "Vita Capsule Sun Cream SPF50+", img: "assets/suncream.jpg"}
+];
+
+(function () {
+  var ACCENT = '#9E1B22';
+  var state = { lang: 'mn', copied: false };
+  try { var q = new URLSearchParams(location.search).get('lang'); if (I18N[q]) state.lang = q; } catch (x) {}
+  function e(v) {
+    return String(v == null ? '' : v).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+  function render() {
+    var lang = state.lang, t = I18N[lang] || I18N.mn, accent = ACCENT;
+    var langs = [{code: 'mn', label: 'MN'}, {code: 'en', label: 'EN'}, {code: 'ko', label: 'KR'}].map(function (l) {
+      return {code: l.code, label: l.label, on: l.code === lang, off: l.code !== lang};
+    });
+    var lineup = LINEUP.map(function (p, i) { return {brand: p.brand, name: p.name, img: p.img, size: t.sizes[i]}; });
+    var fbHref = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(SHARE_URL);
+    var mailHref = "mailto:?subject=" + encodeURIComponent(t.shareSubject) + "&body=" + encodeURIComponent(SHARE_URL);
+    var copyLabel = state.copied ? t.shareCopied : t.shareCopy;
+    document.documentElement.lang = lang === 'ko' ? 'ko' : lang;
+    document.getElementById('app').innerHTML = `<div style="font-family: 'Manrope', 'Noto Sans KR', 'Segoe UI', sans-serif; color: #1C1C1E; background: #F7F5F2; line-height: 1.6">
+
+<header style="background: #FFFFFF; border-bottom: 1px solid #E6E1DA">
+<div style="max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="#top" style="text-decoration: none; color: #1C1C1E; display: flex; align-items: baseline; gap: 10px">
+<span style="font-family: 'Playfair Display', Georgia, serif; font-size: 24px; font-weight: 700; letter-spacing: 0.5px">Magic Cell</span>
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 3px; color: ${e(accent)}">MONGOLIA</span>
+</a>
+<nav aria-label="Menu" style="display: flex; flex-wrap: wrap; gap: 22px; font-size: 15px; font-weight: 500">
+<a href="#product" style="color: #1C1C1E; text-decoration: none">${e(t.navProduct)}</a>
+<a href="#howto" style="color: #1C1C1E; text-decoration: none">${e(t.navHow)}</a>
+<a href="#results" style="color: #1C1C1E; text-decoration: none">${e(t.navResults)}</a>
+<a href="#pro" style="color: #1C1C1E; text-decoration: none">${e(t.navPro)}</a>
+<a href="#business" style="color: #1C1C1E; text-decoration: none">${e(t.navBiz)}</a>
+<a href="#expert" style="color: #1C1C1E; text-decoration: none">${e(t.navExpert)}</a>
+<a href="#contact" style="color: #1C1C1E; text-decoration: none">${e(t.navContact)}</a>
+</nav>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px">
+<div role="group" aria-label="Language" style="display: flex; border: 1px solid #CFC9C1; border-radius: 999px; overflow: hidden">
+${(langs).map(function(l){return `
+${(l.on)?`
+<button type="button" data-lang="${e(l.code)}" aria-pressed="true" style="min-height: 44px; min-width: 48px; padding: 0 12px; border: none; font-family: inherit; font-size: 14px; font-weight: 700; cursor: pointer; background: #1C1C1E; color: #FFFFFF">${e(l.label)}</button>
+`:""}
+${(l.off)?`
+<button type="button" data-lang="${e(l.code)}" aria-pressed="false" style="min-height: 44px; min-width: 48px; padding: 0 12px; border: none; font-family: inherit; font-size: 14px; font-weight: 700; cursor: pointer; background: #FFFFFF; color: #1C1C1E">${e(l.label)}</button>
+`:""}
+`}).join("")}
+</div>
+<a href="#contact" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 22px; border-radius: 999px; background: ${e(accent)}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 15px">${e(t.cta)}</a>
+</div>
+</div>
+</header>
+
+<section id="top" style="background: #FFFFFF">
+<div style="max-width: 1200px; margin: 0 auto; padding: 72px 24px 88px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
+<div style="flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 2.5px; color: ${e(accent)}">${e(t.eyebrow)}</span>
+<h1 style="margin: 0; font-family: 'Playfair Display', 'Noto Sans KR', Georgia, serif; font-size: 54px; line-height: 1.14; font-weight: 600">${e(t.heroTitle)}</h1>
+<p style="margin: 0; font-size: 19px; color: #45434A; max-width: 560px">${e(t.heroText)}</p>
+<div style="display: flex; flex-wrap: wrap; gap: 14px">
+<a href="#product" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 28px; border-radius: 999px; background: ${e(accent)}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px">${e(t.btn1)}</a>
+<a href="#pro" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 28px; border-radius: 999px; border: 1.5px solid #1C1C1E; color: #1C1C1E; text-decoration: none; font-weight: 600; font-size: 16px">${e(t.btn2)}</a>
+</div>
+</div>
+<figure style="flex: 1 1 440px; min-width: 0; margin: 0; display: flex; flex-direction: column; gap: 14px">
+<img src="assets/kit.jpg" alt="${e(t.kitAlt)}" style="width: 100%; height: auto; border-radius: 24px; display: block">
+<figcaption style="font-size: 14px; font-weight: 600; color: #45434A; text-align: center">${e(t.heroCaption)}</figcaption>
+</figure>
+</div>
+</section>
+
+<section aria-label="Features" style="background: #1C1C1E; color: #FFFFFF">
+<div style="max-width: 1200px; margin: 0 auto; padding: 28px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px">
+${(t.features).map(function(f){return `
+<div style="display: flex; gap: 12px; align-items: center">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"></path><path d="M9 12l2 2 4-4"></path></svg>
+<span style="font-size: 15px; font-weight: 600">${e(f.label)}</span>
+</div>
+`}).join("")}
+</div>
+</section>
+
+<section id="product" style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-direction: column; gap: 14px; max-width: 720px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 2.5px; color: ${e(accent)}">${e(t.kitEyebrow)}</span>
+<h2 style="margin: 0; font-family: 'Playfair Display', 'Noto Sans KR', Georgia, serif; font-size: 40px; line-height: 1.2; font-weight: 600">${e(t.kitTitle)}</h2>
+<p style="margin: 0; font-size: 17px; color: #45434A">${e(t.kitText)}</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 24px">
+${(t.parts).map(function(c){return `
+<article style="flex: 1 1 340px; min-width: 0; background: #FFFFFF; border: 1px solid #E6E1DA; border-radius: 20px; padding: 36px; display: flex; flex-direction: column; gap: 14px">
+<span style="font-family: 'Playfair Display', Georgia, serif; font-size: 44px; font-weight: 700; color: ${e(accent)}; line-height: 1">${e(c.no)}</span>
+<h3 style="margin: 0; font-size: 22px; font-weight: 700">${e(c.title)}</h3>
+<p style="margin: 0; font-size: 16px; color: #45434A">${e(c.text)}</p>
+</article>
+`}).join("")}
+</div>
+<div style="background: #FFFFFF; border: 1px solid #E6E1DA; border-radius: 20px; padding: 32px 36px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px">
+${(t.specs).map(function(s){return `
+<div>
+<p style="margin: 0 0 4px; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; color: #6B6870">${e(s.k)}</p>
+<p style="margin: 0; font-size: 18px; font-weight: 600">${e(s.v)}</p>
+</div>
+`}).join("")}
+</div>
+</section>
+
+<section id="howto" style="background: #FFFFFF">
+<div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-direction: column; gap: 14px; max-width: 720px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 2.5px; color: ${e(accent)}">${e(t.howEyebrow)}</span>
+<h2 style="margin: 0; font-family: 'Playfair Display', 'Noto Sans KR', Georgia, serif; font-size: 40px; line-height: 1.2; font-weight: 600">${e(t.howTitle)}</h2>
+</div>
+<ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px">
+${(t.steps).map(function(st){return `
+<li style="display: flex; flex-direction: column; gap: 12px; padding: 28px; border-radius: 20px; background: #F7F5F2">
+<span style="width: 44px; height: 44px; border-radius: 999px; background: ${e(accent)}; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px">${e(st.n)}</span>
+<h3 style="margin: 0; font-size: 19px; font-weight: 700">${e(st.t)}</h3>
+<p style="margin: 0; font-size: 15px; color: #45434A">${e(st.d)}</p>
+</li>
+`}).join("")}
+</ol>
+<div style="display: flex; gap: 16px; align-items: flex-start; padding: 24px 28px; border-radius: 16px; background: #FBEDEC; border: 1px solid #EBC4C1">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7A1419" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M12 3l9 16H3l9-16z"></path><path d="M12 10v4M12 17h.01"></path></svg>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<p style="margin: 0; font-size: 16px; font-weight: 700; color: #7A1419">${e(t.warnTitle)}</p>
+<p style="margin: 0; font-size: 15px; color: #4A1A1C">${e(t.warnText)}</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="results" style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 14px; max-width: 720px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 2.5px; color: ${e(accent)}">${e(t.resultsEyebrow)}</span>
+<h2 style="margin: 0; font-family: 'Playfair Display', 'Noto Sans KR', Georgia, serif; font-size: 40px; line-height: 1.2; font-weight: 600">${e(t.resultsTitle)}</h2>
+<p style="margin: 0; font-size: 17px; color: #45434A">${e(t.resultsText)}</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px">
+${(t.cases).map(function(cs){return `
+<article style="background: #FFFFFF; border: 1px solid #E6E1DA; border-radius: 20px; padding: 20px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 8px">
+<div style="aspect-ratio: 3 / 4; border-radius: 12px; border: 2px dashed #CFC9C1; background: #EFEBE6; display: flex; align-items: center; justify-content: center; text-align: center; padding: 8px; font-size: 13px; color: #6B6870">${e(t.beforePh)}</div>
+<figcaption style="font-size: 12px; font-weight: 700; letter-spacing: 1.5px; color: #6B6870; text-align: center">${e(t.before)}</figcaption>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 8px">
+<div style="aspect-ratio: 3 / 4; border-radius: 12px; border: 2px dashed #CFC9C1; background: #EFEBE6; display: flex; align-items: center; justify-content: center; text-align: center; padding: 8px; font-size: 13px; color: #6B6870">${e(t.afterPh)}</div>
+<figcaption style="font-size: 12px; font-weight: 700; letter-spacing: 1.5px; color: ${e(accent)}; text-align: center">${e(t.after)}</figcaption>
+</figure>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<p style="margin: 0; font-size: 16px; font-weight: 700">${e(cs.label)}</p>
+<p style="margin: 0; font-size: 14px; color: #45434A">${e(cs.detail)}</p>
+</div>
+</article>
+`}).join("")}
+</div>
+<p style="margin: 0; font-size: 13px; color: #6B6870">${e(t.resultsNote)}</p>
+</section>
+
+<section aria-labelledby="more-title" style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 14px; max-width: 720px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 2.5px; color: ${e(accent)}">${e(t.moreEyebrow)}</span>
+<h2 id="more-title" style="margin: 0; font-family: 'Playfair Display', 'Noto Sans KR', Georgia, serif; font-size: 40px; line-height: 1.2; font-weight: 600">${e(t.moreTitle)}</h2>
+<p style="margin: 0; font-size: 17px; color: #45434A">${e(t.moreText)}</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px">
+${(lineup).map(function(p){return `
+<div style="background: #FFFFFF; border: 1px solid #E6E1DA; border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 8px">
+<img src="${e(p.img)}" alt="${e(p.name)}" style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 12px; display: block; background: #EFEBE6">
+<p style="margin: 6px 0 0; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; color: #6B6870">${e(p.brand)}</p>
+<p style="margin: 0; font-size: 17px; font-weight: 700">${e(p.name)}</p>
+<p style="margin: 0; font-size: 14px; color: #45434A">${e(p.size)}</p>
+</div>
+`}).join("")}
+</div>
+</section>
+
+<section id="business" style="background: #FFFFFF; border-top: 1px solid #E6E1DA">
+<div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 14px; max-width: 720px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 2.5px; color: ${e(accent)}">${e(t.bizEyebrow)}</span>
+<h2 style="margin: 0; font-family: 'Playfair Display', 'Noto Sans KR', Georgia, serif; font-size: 40px; line-height: 1.2; font-weight: 600">${e(t.bizTitle)}</h2>
+<p style="margin: 0; font-size: 17px; color: #45434A">${e(t.bizText)}</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 24px">
+<article style="flex: 1 1 440px; min-width: 0; background: #F7F5F2; border-radius: 20px; padding: 32px; display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+<div style="flex: 0 0 180px; aspect-ratio: 3 / 4; border-radius: 14px; border: 2px dashed #CFC9C1; background: #EFEBE6; display: flex; align-items: center; justify-content: center; text-align: center; padding: 8px; font-size: 13px; color: #6B6870">${e(t.drinkPh)}</div>
+<div style="flex: 1 1 200px; min-width: 0; display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; color: #6B6870">${e(t.drinkBrand)}</p>
+<h3 style="margin: 0; font-size: 22px; font-weight: 700">${e(t.drinkName)}</h3>
+<p style="margin: 0; font-size: 15px; color: #45434A">${e(t.drinkText)}</p>
+<ul style="margin: 4px 0 0; padding-left: 18px; font-size: 15px; color: #45434A; display: flex; flex-direction: column; gap: 4px">
+${(t.drinkSpecs).map(function(d){return `
+<li>${e(d.v)}</li>
+`}).join("")}
+</ul>
+</div>
+</article>
+<article style="flex: 1 1 440px; min-width: 0; background: #1C1C1E; color: #FFFFFF; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 18px">
+<p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 2px; color: #F2A9A4">${e(t.joinEyebrow)}</p>
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px">
+<span style="font-family: 'Playfair Display', Georgia, serif; font-size: 48px; font-weight: 700; line-height: 1">$1,000</span>
+<span style="font-size: 15px; color: #D4D2D6">${e(t.joinFeeL)}</span>
+</div>
+<p style="margin: 0; font-size: 15px; color: #D4D2D6">${e(t.joinIncl)}</p>
+<ul style="margin: 0; padding-left: 18px; font-size: 15px; color: #FFFFFF; display: flex; flex-direction: column; gap: 6px">
+${(t.joinList).map(function(j){return `
+<li>${e(j.v)}</li>
+`}).join("")}
+</ul>
+<a href="#contact" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 52px; padding: 0 28px; border-radius: 999px; background: #FFFFFF; color: #1C1C1E; text-decoration: none; font-weight: 700; font-size: 16px">${e(t.joinBtn)}</a>
+</article>
+</div>
+<p style="margin: 0; font-size: 13px; color: #6B6870">${e(t.bizNote)}</p>
+</div>
+</section>
+
+<section id="pro" style="background: #1C1C1E; color: #FFFFFF">
+<div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; gap: 56px">
+<div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 2.5px; color: #F2A9A4">${e(t.proEyebrow)}</span>
+<h2 style="margin: 0; font-family: 'Playfair Display', 'Noto Sans KR', Georgia, serif; font-size: 40px; line-height: 1.2; font-weight: 600">${e(t.proTitle)}</h2>
+<p style="margin: 0; font-size: 17px; color: #D4D2D6">${e(t.proText)}</p>
+<a href="#contact" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 52px; padding: 0 28px; border-radius: 999px; background: #FFFFFF; color: #1C1C1E; text-decoration: none; font-weight: 700; font-size: 16px">${e(t.proBtn)}</a>
+</div>
+<div style="flex: 1 1 480px; min-width: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px">
+${(t.pro).map(function(x){return `
+<div style="padding: 26px; border-radius: 18px; background: #2A2A2E; display: flex; flex-direction: column; gap: 8px">
+<p style="margin: 0; font-size: 18px; font-weight: 700">${e(x.t)}</p>
+<p style="margin: 0; font-size: 15px; color: #C9C7CC">${e(x.d)}</p>
+</div>
+`}).join("")}
+</div>
+</div>
+</section>
+
+<section id="expert" style="max-width: 1200px; margin: 0 auto; padding: 96px 24px">
+<div style="background: #FFFFFF; border: 1px solid #E6E1DA; border-radius: 24px; padding: 40px; display: flex; flex-wrap: wrap; gap: 40px; align-items: center">
+<img src="assets/expert.jpg" alt="${e(t.expertName)}" style="width: 200px; height: 200px; border-radius: 999px; object-fit: cover; flex: none">
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 2.5px; color: ${e(accent)}">${e(t.expertEyebrow)}</span>
+<h2 style="margin: 0; font-family: 'Playfair Display', 'Noto Sans KR', Georgia, serif; font-size: 34px; line-height: 1.2; font-weight: 600">${e(t.expertName)}</h2>
+<p style="margin: 0; font-size: 17px; font-weight: 600; color: #45434A">${e(t.expertRole)}</p>
+<p style="margin: 0; font-size: 16px; color: #45434A">${e(t.expertBio)}</p>
+</div>
+</div>
+</section>
+
+<section id="faq" style="max-width: 900px; margin: 0 auto; padding: 24px 24px 96px; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 2.5px; color: ${e(accent)}">${e(t.faqEyebrow)}</span>
+<h2 style="margin: 0; font-family: 'Playfair Display', 'Noto Sans KR', Georgia, serif; font-size: 40px; line-height: 1.2; font-weight: 600">${e(t.faqTitle)}</h2>
+</div>
+<div style="display: flex; flex-direction: column; gap: 14px">
+${(t.faq).map(function(q){return `
+<details style="background: #FFFFFF; border: 1px solid #E6E1DA; border-radius: 16px; padding: 20px 24px">
+<summary style="font-size: 17px; font-weight: 700; cursor: pointer">${e(q.q)}</summary>
+<p style="margin: 12px 0 0; font-size: 15px; color: #45434A">${e(q.a)}</p>
+</details>
+`}).join("")}
+</div>
+</section>
+
+<section id="contact" style="background: #FFFFFF; border-top: 1px solid #E6E1DA">
+<div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; gap: 56px">
+<div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 2.5px; color: ${e(accent)}">${e(t.contactEyebrow)}</span>
+<h2 style="margin: 0; font-family: 'Playfair Display', 'Noto Sans KR', Georgia, serif; font-size: 40px; line-height: 1.2; font-weight: 600">${e(t.contactTitle)}</h2>
+<p style="margin: 0; font-size: 17px; color: #45434A">${e(t.contactText)}</p>
+<div style="display: flex; flex-direction: column; gap: 10px; font-size: 16px">
+<span><strong>${e(t.phoneL)}:</strong> [УТАС / PHONE]</span>
+<span><strong>${e(t.emailL)}:</strong> [И-МЭЙЛ / EMAIL]</span>
+<span><strong>${e(t.addrL)}:</strong> ${e(t.addrV)}</span>
+</div>
+</div>
+<form style="flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 16px; background: #F7F5F2; border-radius: 20px; padding: 32px">
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600">${e(t.fName)}
+<input type="text" name="name" style="min-height: 46px; padding: 0 14px; border: 1px solid #CFC9C1; border-radius: 10px; font-size: 16px; font-family: inherit; background: #FFFFFF">
+</label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600">${e(t.fPhone)}
+<input type="tel" name="phone" style="min-height: 46px; padding: 0 14px; border: 1px solid #CFC9C1; border-radius: 10px; font-size: 16px; font-family: inherit; background: #FFFFFF">
+</label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600">${e(t.fWho)}
+<select name="type" style="min-height: 46px; padding: 0 12px; border: 1px solid #CFC9C1; border-radius: 10px; font-size: 16px; font-family: inherit; background: #FFFFFF">
+${(t.whoOpts).map(function(o){return `
+<option>${e(o.label)}</option>
+`}).join("")}
+</select>
+</label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600">${e(t.fMsg)}
+<textarea name="message" rows="4" style="padding: 12px 14px; border: 1px solid #CFC9C1; border-radius: 10px; font-size: 16px; font-family: inherit; background: #FFFFFF; resize: vertical"></textarea>
+</label>
+<button type="button" style="min-height: 52px; border: none; border-radius: 999px; background: ${e(accent)}; color: #FFFFFF; font-weight: 700; font-size: 16px; font-family: inherit; cursor: pointer">${e(t.fSend)}</button>
+</form>
+</div>
+</section>
+
+<section id="share" style="background: #EFEBE6">
+<div style="max-width: 1200px; margin: 0 auto; padding: 72px 24px; display: flex; flex-wrap: wrap; gap: 32px; align-items: center; justify-content: space-between">
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 2.5px; color: ${e(accent)}">${e(t.shareEyebrow)}</span>
+<h2 style="margin: 0; font-family: 'Playfair Display', 'Noto Sans KR', Georgia, serif; font-size: 34px; line-height: 1.2; font-weight: 600">${e(t.shareTitle)}</h2>
+<p style="margin: 0; font-size: 16px; color: #45434A">${e(t.shareText)}</p>
+</div>
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-wrap: wrap; gap: 12px">
+<a href="${e(fbHref)}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 20px; border-radius: 999px; background: #1F3A8A; color: #FFFFFF; text-decoration: none; font-weight: 700; font-size: 15px">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"></path></svg>
+${e(t.shareFb)}</a>
+<button type="button" data-action="share" style="display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 20px; border-radius: 999px; border: none; background: ${e(accent)}; color: #FFFFFF; font-family: inherit; font-weight: 700; font-size: 15px; cursor: pointer">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"></path><path d="M12 3v12M7 8l5-5 5 5"></path></svg>
+${e(t.shareNative)}</button>
+<button type="button" data-action="copy" style="display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 20px; border-radius: 999px; border: 1.5px solid #1C1C1E; background: #FFFFFF; color: #1C1C1E; font-family: inherit; font-weight: 700; font-size: 15px; cursor: pointer">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1C1C1E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"></path><path d="M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"></path></svg>
+${e(copyLabel)}</button>
+<a href="${e(mailHref)}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 20px; border-radius: 999px; border: 1.5px solid #1C1C1E; background: #FFFFFF; color: #1C1C1E; text-decoration: none; font-weight: 700; font-size: 15px">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1C1C1E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg>
+${e(t.shareEmail)}</a>
+</div>
+</div>
+</section>
+
+<footer style="background: #1C1C1E; color: #C9C7CC">
+<div style="max-width: 1200px; margin: 0 auto; padding: 40px 24px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; font-size: 14px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-weight: 700; color: #FFFFFF">Magic Cell Mongolia</span>
+<span>${e(t.distributor)}</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px; max-width: 520px">
+<span>${e(t.disclaimer)}</span>
+<span>© 2026 Magic Cell Mongolia</span>
+</div>
+</div>
+</footer>
+
+</div>`;
+  }
+  function copyLink() {
+    try {
+      navigator.clipboard.writeText(SHARE_URL).then(function () { state.copied = true; render(); }, function () {});
+    } catch (x) {}
+  }
+  document.addEventListener('click', function (ev) {
+    var b = ev.target.closest('[data-lang],[data-action]');
+    if (!b) return;
+    if (b.dataset.lang) { state.lang = b.dataset.lang; state.copied = false; render(); return; }
+    if (b.dataset.action === 'copy') copyLink();
+    if (b.dataset.action === 'share') {
+      var t = I18N[state.lang];
+      if (navigator.share) navigator.share({title: t.shareSubject, url: SHARE_URL}).catch(function () {});
+      else copyLink();
+    }
+  });
+  render();
+})();
+</script>
+</body>
+</html>
