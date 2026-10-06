@@ -16,7 +16,7 @@
 <meta name="theme-color" content="#9E1B22">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@500;600;700&amp;family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap">
 <style>
 html{scroll-behavior:smooth}
 body{margin:0;background:#F7F5F2}
@@ -321,12 +321,12 @@ var LINEUP = [
     var mailHref = "mailto:?subject=" + encodeURIComponent(t.shareSubject) + "&body=" + encodeURIComponent(SHARE_URL);
     var copyLabel = state.copied ? t.shareCopied : t.shareCopy;
     document.documentElement.lang = lang === 'ko' ? 'ko' : lang;
-    document.getElementById('app').innerHTML = `<div style="font-family: 'Manrope', 'Noto Sans KR', 'Segoe UI', sans-serif; color: #1C1C1E; background: #F7F5F2; line-height: 1.6">
+    document.getElementById('app').innerHTML = `<div style="font-family: 'Inter', 'Noto Sans KR', 'Segoe UI', sans-serif; color: #1C1C1E; background: #F7F5F2; line-height: 1.6">
 
 <header style="background: #FFFFFF; border-bottom: 1px solid #E6E1DA">
 <div style="max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
 <a href="#top" style="text-decoration: none; color: #1C1C1E; display: flex; align-items: baseline; gap: 10px">
-<span style="font-family: 'Playfair Display', Georgia, serif; font-size: 24px; font-weight: 700; letter-spacing: 0.5px">Magic Cell</span>
+<span style="font-family: 'Noto Serif Display', Georgia, serif; font-size: 24px; font-weight: 700; letter-spacing: 0.5px">Magic Cell</span>
 <span style="font-size: 12px; font-weight: 700; letter-spacing: 3px; color: ${e(accent)}">MONGOLIA</span>
 </a>
 <nav aria-label="Menu" style="display: flex; flex-wrap: wrap; gap: 22px; font-size: 15px; font-weight: 500">
@@ -359,7 +359,7 @@ ${(l.off)?`
 <div style="max-width: 1200px; margin: 0 auto; padding: 72px 24px 88px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
 <div style="flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
 <span style="font-size: 13px; font-weight: 700; letter-spacing: 2.5px; color: ${e(accent)}">${e(t.eyebrow)}</span>
-<h1 style="margin: 0; font-family: 'Playfair Display', 'Noto Sans KR', Georgia, serif; font-size: 54px; line-height: 1.14; font-weight: 600">${e(t.heroTitle)}</h1>
+<h1 style="margin: 0; font-family: 'Noto Serif Display', 'Noto Sans KR', Georgia, serif; font-size: 54px; line-height: 1.14; font-weight: 600">${e(t.heroTitle)}</h1>
 <p style="margin: 0; font-size: 19px; color: #45434A; max-width: 560px">${e(t.heroText)}</p>
 <div style="display: flex; flex-wrap: wrap; gap: 14px">
 <a href="#product" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 28px; border-radius: 999px; background: ${e(accent)}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px">${e(t.btn1)}</a>
@@ -387,13 +387,13 @@ ${(t.features).map(function(f){return `
 <section id="product" style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 48px">
 <div style="display: flex; flex-direction: column; gap: 14px; max-width: 720px">
 <span style="font-size: 13px; font-weight: 700; letter-spacing: 2.5px; color: ${e(accent)}">${e(t.kitEyebrow)}</span>
-<h2 style="margin: 0; font-family: 'Playfair Display', 'Noto Sans KR', Georgia, serif; font-size: 40px; line-height: 1.2; font-weight: 600">${e(t.kitTitle)}</h2>
+<h2 style="margin: 0; font-family: 'Noto Serif Display', 'Noto Sans KR', Georgia, serif; font-size: 40px; line-height: 1.2; font-weight: 600">${e(t.kitTitle)}</h2>
 <p style="margin: 0; font-size: 17px; color: #45434A">${e(t.kitText)}</p>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 24px">
 ${(t.parts).map(function(c){return `
 <article style="flex: 1 1 340px; min-width: 0; background: #FFFFFF; border: 1px solid #E6E1DA; border-radius: 20px; padding: 36px; display: flex; flex-direction: column; gap: 14px">
-<span style="font-family: 'Playfair Display', Georgia, serif; font-size: 44px; font-weight: 700; color: ${e(accent)}; line-height: 1">${e(c.no)}</span>
+<span style="font-family: 'Noto Serif Display', Georgia, serif; font-size: 44px; font-weight: 700; color: ${e(accent)}; line-height: 1">${e(c.no)}</span>
 <h3 style="margin: 0; font-size: 22px; font-weight: 700">${e(c.title)}</h3>
 <p style="margin: 0; font-size: 16px; color: #45434A">${e(c.text)}</p>
 </article>
@@ -413,7 +413,7 @@ ${(t.specs).map(function(s){return `
 <div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 48px">
 <div style="display: flex; flex-direction: column; gap: 14px; max-width: 720px">
 <span style="font-size: 13px; font-weight: 700; letter-spacing: 2.5px; color: ${e(accent)}">${e(t.howEyebrow)}</span>
-<h2 style="margin: 0; font-family: 'Playfair Display', 'Noto Sans KR', Georgia, serif; font-size: 40px; line-height: 1.2; font-weight: 600">${e(t.howTitle)}</h2>
+<h2 style="margin: 0; font-family: 'Noto Serif Display', 'Noto Sans KR', Georgia, serif; font-size: 40px; line-height: 1.2; font-weight: 600">${e(t.howTitle)}</h2>
 </div>
 <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px">
 ${(t.steps).map(function(st){return `
@@ -437,7 +437,7 @@ ${(t.steps).map(function(st){return `
 ${SHOW_RESULTS ? `<section id="results" style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 40px">
 <div style="display: flex; flex-direction: column; gap: 14px; max-width: 720px">
 <span style="font-size: 13px; font-weight: 700; letter-spacing: 2.5px; color: ${e(accent)}">${e(t.resultsEyebrow)}</span>
-<h2 style="margin: 0; font-family: 'Playfair Display', 'Noto Sans KR', Georgia, serif; font-size: 40px; line-height: 1.2; font-weight: 600">${e(t.resultsTitle)}</h2>
+<h2 style="margin: 0; font-family: 'Noto Serif Display', 'Noto Sans KR', Georgia, serif; font-size: 40px; line-height: 1.2; font-weight: 600">${e(t.resultsTitle)}</h2>
 <p style="margin: 0; font-size: 17px; color: #45434A">${e(t.resultsText)}</p>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px">
@@ -466,7 +466,7 @@ ${(t.cases).map(function(cs){return `
 <section aria-labelledby="more-title" style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 40px">
 <div style="display: flex; flex-direction: column; gap: 14px; max-width: 720px">
 <span style="font-size: 13px; font-weight: 700; letter-spacing: 2.5px; color: ${e(accent)}">${e(t.moreEyebrow)}</span>
-<h2 id="more-title" style="margin: 0; font-family: 'Playfair Display', 'Noto Sans KR', Georgia, serif; font-size: 40px; line-height: 1.2; font-weight: 600">${e(t.moreTitle)}</h2>
+<h2 id="more-title" style="margin: 0; font-family: 'Noto Serif Display', 'Noto Sans KR', Georgia, serif; font-size: 40px; line-height: 1.2; font-weight: 600">${e(t.moreTitle)}</h2>
 <p style="margin: 0; font-size: 17px; color: #45434A">${e(t.moreText)}</p>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px">
@@ -485,7 +485,7 @@ ${SHOW_BUSINESS ? `<section id="business" style="background: #FFFFFF; border-top
 <div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 40px">
 <div style="display: flex; flex-direction: column; gap: 14px; max-width: 720px">
 <span style="font-size: 13px; font-weight: 700; letter-spacing: 2.5px; color: ${e(accent)}">${e(t.bizEyebrow)}</span>
-<h2 style="margin: 0; font-family: 'Playfair Display', 'Noto Sans KR', Georgia, serif; font-size: 40px; line-height: 1.2; font-weight: 600">${e(t.bizTitle)}</h2>
+<h2 style="margin: 0; font-family: 'Noto Serif Display', 'Noto Sans KR', Georgia, serif; font-size: 40px; line-height: 1.2; font-weight: 600">${e(t.bizTitle)}</h2>
 <p style="margin: 0; font-size: 17px; color: #45434A">${e(t.bizText)}</p>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 24px">
@@ -505,7 +505,7 @@ ${(t.drinkSpecs).map(function(d){return `
 <article style="flex: 1 1 440px; min-width: 0; background: #1C1C1E; color: #FFFFFF; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 18px">
 <p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 2px; color: #F2A9A4">${e(t.joinEyebrow)}</p>
 <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px">
-<span style="font-family: 'Playfair Display', Georgia, serif; font-size: 48px; font-weight: 700; line-height: 1">$1,000</span>
+<span style="font-family: 'Noto Serif Display', Georgia, serif; font-size: 48px; font-weight: 700; line-height: 1">$1,000</span>
 <span style="font-size: 15px; color: #D4D2D6">${e(t.joinFeeL)}</span>
 </div>
 <p style="margin: 0; font-size: 15px; color: #D4D2D6">${e(t.joinIncl)}</p>
@@ -525,7 +525,7 @@ ${(t.joinList).map(function(j){return `
 <div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; gap: 56px">
 <div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
 <span style="font-size: 13px; font-weight: 700; letter-spacing: 2.5px; color: #F2A9A4">${e(t.proEyebrow)}</span>
-<h2 style="margin: 0; font-family: 'Playfair Display', 'Noto Sans KR', Georgia, serif; font-size: 40px; line-height: 1.2; font-weight: 600">${e(t.proTitle)}</h2>
+<h2 style="margin: 0; font-family: 'Noto Serif Display', 'Noto Sans KR', Georgia, serif; font-size: 40px; line-height: 1.2; font-weight: 600">${e(t.proTitle)}</h2>
 <p style="margin: 0; font-size: 17px; color: #D4D2D6">${e(t.proText)}</p>
 <a href="#contact" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 52px; padding: 0 28px; border-radius: 999px; background: #FFFFFF; color: #1C1C1E; text-decoration: none; font-weight: 700; font-size: 16px">${e(t.proBtn)}</a>
 </div>
@@ -543,7 +543,7 @@ ${(t.pro).map(function(x){return `
 <section id="manufacturer" style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 40px">
 <div style="display: flex; flex-direction: column; gap: 14px; max-width: 760px">
 <span style="font-size: 13px; font-weight: 700; letter-spacing: 2.5px; color: ${e(accent)}">${e(t.mfgEyebrow)}</span>
-<h2 style="margin: 0; font-family: 'Playfair Display', 'Noto Sans KR', Georgia, serif; font-size: 40px; line-height: 1.2; font-weight: 600">${e(t.mfgTitle)}</h2>
+<h2 style="margin: 0; font-family: 'Noto Serif Display', 'Noto Sans KR', Georgia, serif; font-size: 40px; line-height: 1.2; font-weight: 600">${e(t.mfgTitle)}</h2>
 <p style="margin: 0; font-size: 17px; color: #45434A">${e(t.mfgText)}</p>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px">
@@ -562,7 +562,7 @@ ${SHOW_EXPERT ? `<section id="expert" style="max-width: 1200px; margin: 0 auto; 
 <img src="assets/expert.jpg" alt="${e(t.expertName)}" style="width: 200px; height: 200px; border-radius: 999px; object-fit: cover; flex: none">
 <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
 <span style="font-size: 13px; font-weight: 700; letter-spacing: 2.5px; color: ${e(accent)}">${e(t.expertEyebrow)}</span>
-<h2 style="margin: 0; font-family: 'Playfair Display', 'Noto Sans KR', Georgia, serif; font-size: 34px; line-height: 1.2; font-weight: 600">${e(t.expertName)}</h2>
+<h2 style="margin: 0; font-family: 'Noto Serif Display', 'Noto Sans KR', Georgia, serif; font-size: 34px; line-height: 1.2; font-weight: 600">${e(t.expertName)}</h2>
 <p style="margin: 0; font-size: 17px; font-weight: 600; color: #45434A">${e(t.expertRole)}</p>
 <p style="margin: 0; font-size: 16px; color: #45434A">${e(t.expertBio)}</p>
 </div>
@@ -572,7 +572,7 @@ ${SHOW_EXPERT ? `<section id="expert" style="max-width: 1200px; margin: 0 auto; 
 <section id="faq" style="max-width: 900px; margin: 0 auto; padding: 24px 24px 96px; display: flex; flex-direction: column; gap: 28px">
 <div style="display: flex; flex-direction: column; gap: 14px">
 <span style="font-size: 13px; font-weight: 700; letter-spacing: 2.5px; color: ${e(accent)}">${e(t.faqEyebrow)}</span>
-<h2 style="margin: 0; font-family: 'Playfair Display', 'Noto Sans KR', Georgia, serif; font-size: 40px; line-height: 1.2; font-weight: 600">${e(t.faqTitle)}</h2>
+<h2 style="margin: 0; font-family: 'Noto Serif Display', 'Noto Sans KR', Georgia, serif; font-size: 40px; line-height: 1.2; font-weight: 600">${e(t.faqTitle)}</h2>
 </div>
 <div style="display: flex; flex-direction: column; gap: 14px">
 ${(t.faq).map(function(q){return `
@@ -588,7 +588,7 @@ ${(t.faq).map(function(q){return `
 <div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; gap: 56px">
 <div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
 <span style="font-size: 13px; font-weight: 700; letter-spacing: 2.5px; color: ${e(accent)}">${e(t.contactEyebrow)}</span>
-<h2 style="margin: 0; font-family: 'Playfair Display', 'Noto Sans KR', Georgia, serif; font-size: 40px; line-height: 1.2; font-weight: 600">${e(t.contactTitle)}</h2>
+<h2 style="margin: 0; font-family: 'Noto Serif Display', 'Noto Sans KR', Georgia, serif; font-size: 40px; line-height: 1.2; font-weight: 600">${e(t.contactTitle)}</h2>
 <p style="margin: 0; font-size: 17px; color: #45434A">${e(t.contactText)}</p>
 <div style="display: flex; flex-direction: column; gap: 10px; font-size: 16px">
 <span><strong>${e(t.phoneL)}:</strong> ${PHONES.map(function(ph){return `<a href="tel:+976${e(ph.replace('-',''))}" style="color: #1C1C1E; text-decoration: none">${e(ph)}</a>`}).join(", ")}</span>
@@ -623,7 +623,7 @@ ${(t.whoOpts).map(function(o){return `
 <div style="max-width: 1200px; margin: 0 auto; padding: 72px 24px; display: flex; flex-wrap: wrap; gap: 32px; align-items: center; justify-content: space-between">
 <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
 <span style="font-size: 13px; font-weight: 700; letter-spacing: 2.5px; color: ${e(accent)}">${e(t.shareEyebrow)}</span>
-<h2 style="margin: 0; font-family: 'Playfair Display', 'Noto Sans KR', Georgia, serif; font-size: 34px; line-height: 1.2; font-weight: 600">${e(t.shareTitle)}</h2>
+<h2 style="margin: 0; font-family: 'Noto Serif Display', 'Noto Sans KR', Georgia, serif; font-size: 34px; line-height: 1.2; font-weight: 600">${e(t.shareTitle)}</h2>
 <p style="margin: 0; font-size: 16px; color: #45434A">${e(t.shareText)}</p>
 </div>
 <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-wrap: wrap; gap: 12px">
@@ -646,7 +646,7 @@ ${e(t.shareEmail)}</a>
 <footer style="background: #1C1C1E; color: #C9C7CC">
 <div style="max-width: 1200px; margin: 0 auto; padding: 40px 24px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; font-size: 14px">
 <div style="display: flex; flex-direction: column; gap: 6px">
-<span style="font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-weight: 700; color: #FFFFFF">Magic Cell Mongolia</span>
+<span style="font-family: 'Noto Serif Display', Georgia, serif; font-size: 20px; font-weight: 700; color: #FFFFFF">Magic Cell Mongolia</span>
 <span>${e(t.distributor)}</span>
 <a href="${e(FB_URL)}" target="_blank" rel="noopener" style="color: #FFFFFF">Facebook: Magic Cell Mongolia</a>
 </div>
